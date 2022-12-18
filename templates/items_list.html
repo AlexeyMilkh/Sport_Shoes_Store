@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Список товаров</title>
+{% endblock %}
+
+{% block style %}
+<style>
+    .item-card {
+        display: inline-block;
+        border: 1px solid black;
+        padding: 10px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<a href="/">Home</a>
+    <ol>
+        {% for item in items %}
+        <a href="{% url 'item-page' item.id %}">
+            <li class="item-card">
+                {{ item.name }}
+                <div>Описание товара</div>
+            </li>
+        </a>
+        {% endfor %}
+    </ol>
+{% endblock %}

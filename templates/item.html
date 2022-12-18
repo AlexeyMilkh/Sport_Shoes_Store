@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Товар</title>
+{% endblock %}
+
+{% block content %}
+<h1>Товар: {{ item.name }}</h1>
+<div>
+    Количество:
+    {% if item.count %}
+        <span style="color: blue">{{ item.count }}</span>
+    {% else %}
+        <span style="color: red">"Нет на складе"</span>
+    {% endif %}
+</div>
+<a href="{% url 'items-list' %}">Back</a>
+{% endblock %}
